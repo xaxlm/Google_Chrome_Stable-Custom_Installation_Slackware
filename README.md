@@ -1,0 +1,1 @@
+# Google-Chrome--custom-installation-Slackware-4.2--
