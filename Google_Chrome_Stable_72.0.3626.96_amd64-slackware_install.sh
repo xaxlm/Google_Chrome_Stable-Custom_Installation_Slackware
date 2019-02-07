@@ -1,5 +1,5 @@
 #!/bin/bash
-# Ultima actualización: 22/08/2017
+# Ultima actualización: 06/02/2019
 cd /
 # Se descarga Google Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -18,17 +18,17 @@ if [ -f $FILE ];
 		wget http://http.debian.net/debian/pool/main/a/alien/alien_8.95.tar.xz
 		wget https://slackbuilds.org/slackbuilds/14.2/system/alien.tar.gz
 		tar xzvf alien.tar.gz
-		cd /alien
+		cd alien
 		mv ../alien_8.95.tar.xz .
 		chmod +x alien.SlackBuild
 		./alien.SlackBuild
 		installpkg /tmp/alien-8.95-x86_64-1_SBo.tgz
 fi
 alien -t -c google-chrome-stable_current_amd64.deb
-tar xzvf google-chrome-stable-65.0.3325.181.tgz
-tar czvf google-chrome-stable_current_amd64-65.0.3325.181.tar.gz opt/ usr/ etc/
+tar xzvf google-chrome-stable-72.0.3626.96.tgz
+tar czvf google-chrome-stable_current_amd64-72.0.3626.96.tar.gz opt/ usr/ etc/
 cd /
-mv /tmp/google/google-chrome-stable_current_amd64-65.0.3325.181.tar.gz .
+mv /tmp/google/google-chrome-stable_current_amd64-72.0.3626.96.tar.gz .
 cd /usr/local/
 echo 'Se va a instalar en /usr/local/...'
 read -p "Ingresa el nombre del directorio principal de instalacion, si no existe se creará: " DIRINST
@@ -48,8 +48,8 @@ fi
 sleep 2
 mkdir google-chrome
 cd google-chrome/
-mv /google-chrome-stable_current_amd64-65.0.3325.181.tar.gz .
-tar xzvf google-chrome-stable_current_amd64-65.0.3325.181.tar.gz
+mv /google-chrome-stable_current_amd64-72.0.3626.96.tar.gz .
+tar xzvf google-chrome-stable_current_amd64-72.0.3626.96.tar.gz
 cd ../
 # El directorio tiene que ser propiedad de root para actuar sobre este
 chown -R root:root google-chrome/
@@ -59,7 +59,7 @@ chmod -R +x google-chrome/
 cd /usr/share/applications/
 touch google-chrome.desktop
 echo '[Desktop Entry]' > google-chrome.desktop
-echo 'Version=65.0.3325.181 empaquetado de *.deb' >> google-chrome.desktop
+echo 'Version=72.0.3626.96 empaquetado de *.deb' >> google-chrome.desktop
 echo 'Name=Google Chrome' >> google-chrome.desktop
 echo 'Comment=Suite Navegador Web' >> google-chrome.desktop
 echo 'Exec=/usr/local/'$DIRINST'/google-chrome/opt/google/chrome/google-chrome' >> google-chrome.desktop
@@ -101,7 +101,7 @@ chmod 744 remove.sh
 touch README.txt
 echo 'Google Chrome' > README.txt
 echo 'Idioma=es_MX' >> README.txt
-echo 'Version=65.0.3325.181 empaquetado de .deb' >> README.txt
+echo 'Version=72.0.3626.96 empaquetado de .deb' >> README.txt
 echo 'Arquitectura=x86_64' >> README.txt
 echo 'Esta es una instalación no invasiva.' >> README.txt
 echo 'Para desinstalar ejecute el fichero remove.sh como root.' >> README.txt
@@ -127,7 +127,7 @@ echo -ne '[=================================>      ](83.30%)\r';sleep 0.2
 echo -ne '[====================================>   ](91.64%)\r';sleep 0.2
 echo -ne '[=======================================>](100.00%)\r';sleep 0.2
 echo -ne '\n'
-rm -rf /usr/local/$DIRINST/google-chrome/google-chrome-stable_current_amd64-65.0.3325.181.tar.gz
+rm -rf /usr/local/$DIRINST/google-chrome/google-chrome-stable_current_amd64-72.0.3626.96.tar.gz
 rm -rf /tmp/google/
 rm -rf /tmp/alien-8.95-x86_64-1_SBo.tgz
 if [ -d /home/*/.cache/google-chrome/ ];
