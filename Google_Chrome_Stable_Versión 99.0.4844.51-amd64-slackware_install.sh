@@ -1,5 +1,5 @@
 #!/bin/bash
-# Ultima actualizaciÃġn 20/06/2020
+# Ultima actualizacion 09/03/2022
 cd /
 # Se descarga Google Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -25,13 +25,13 @@ if [ -f $FILE ];
 		installpkg /tmp/alien-8.95-x86_64-1_SBo.tgz
 fi
 alien -t -c google-chrome-stable_current_amd64.deb
-tar xzvf google-chrome-stable-86.0.4240.183.tgz
-tar czvf google-chrome-stable_current_amd64-86.0.4240.183.tar.gz opt/ usr/ etc/
+tar xzvf google-chrome-stable-99.0.4844.51.tgz
+tar czvf google-chrome-stable_current_amd64-99.0.4844.51.tar.gz opt/ usr/ etc/
 cd /
-mv /tmp/google/google-chrome-stable_current_amd64-86.0.4240.183.tar.gz .
+mv /tmp/google/google-chrome-stable_current_amd64-99.0.4844.51.tar.gz .
 cd /usr/local/
 echo 'Se va a instalar en /usr/local/...'
-read -p "Ingresa el nombre del directorio principal de instalacion, si no existe se crearÃḂ: " DIRINST
+read -p "Ingresa el nombre del directorio principal de instalacion, si no existe se creará: " DIRINST
 if [ -d $DIRINST ];
 	then
 		echo 'El directorio ya existe...'
@@ -48,18 +48,18 @@ fi
 sleep 2
 mkdir google-chrome
 cd google-chrome/
-mv /google-chrome-stable_current_amd64-86.0.4240.183.tar.gz .
-tar xzvf google-chrome-stable_current_amd64-86.0.4240.183.tar.gz
+mv /google-chrome-stable_current_amd64-99.0.4844.51.tar.gz .
+tar xzvf google-chrome-stable_current_amd64-99.0.4844.51.tar.gz
 cd ../
 # El directorio tiene que ser propiedad de root para actuar sobre este
 chown -R root:root google-chrome/
 chmod -R +x google-chrome/
 #
-#App a Menú
+#App a Menu
 cd /usr/share/applications/
 touch google-chrome.desktop
 echo '[Desktop Entry]' > google-chrome.desktop
-echo 'Version=86.0.4240.183 empaquetado de *.deb' >> google-chrome.desktop
+echo 'Version=99.0.4844.51 empaquetado de *.deb' >> google-chrome.desktop
 echo 'Name=Google Chrome' >> google-chrome.desktop
 echo 'Comment=Suite Navegador Web' >> google-chrome.desktop
 echo 'Exec=/usr/local/'$DIRINST'/google-chrome/opt/google/chrome/google-chrome' >> google-chrome.desktop
@@ -101,9 +101,9 @@ chmod 744 remove.sh
 touch README.txt
 echo 'Google Chrome' > README.txt
 echo 'Idioma=es_MX' >> README.txt
-echo 'Version=86.0.4240.183 empaquetado de .deb' >> README.txt
+echo 'Version=99.0.4844.51 empaquetado de .deb' >> README.txt
 echo 'Arquitectura=x86_64' >> README.txt
-echo 'Esta es una instalación no invasiva.' >> README.txt
+echo 'Esta es una instalacion no invasiva.' >> README.txt
 echo 'Para desinstalar ejecute el fichero remove.sh como root.' >> README.txt
 echo '' >> README.txt
 echo 'https://www.google.com.mx/chrome/browser/desktop/index.html' >> README.txt
@@ -127,7 +127,7 @@ echo -ne '[=================================>      ](83.30%)\r';sleep 0.2
 echo -ne '[====================================>   ](91.64%)\r';sleep 0.2
 echo -ne '[=======================================>](100.00%)\r';sleep 0.2
 echo -ne '\n'
-rm -rf /usr/local/$DIRINST/google-chrome/google-chrome-stable_current_amd64-86.0.4240.183.tar.gz
+rm -rf /usr/local/$DIRINST/google-chrome/google-chrome-stable_current_amd64-87.0.4280.141.tar.gz
 rm -rf /tmp/google/
 rm -rf /tmp/alien-8.95-x86_64-1_SBo.tgz
 if [ -d /home/*/.cache/google-chrome/ ];
